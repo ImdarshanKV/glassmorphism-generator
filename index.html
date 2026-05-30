@@ -86,7 +86,7 @@
 
         /* Header */
         header {
-            padding: 20px 40px;
+            padding: 16px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -101,33 +101,28 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.5rem;
+            gap: 10px;
+            font-size: 1.3rem;
             font-weight: 700;
             background: linear-gradient(135deg, #6366f1, #06b6d4);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .logo i {
-            font-size: 1.8rem;
-            background: linear-gradient(135deg, #6366f1, #06b6d4);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 1.5rem;
         }
 
         .header-actions {
             display: flex;
-            gap: 12px;
+            gap: 8px;
             align-items: center;
         }
 
         .btn-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
             border: 1px solid var(--border);
             background: rgba(255,255,255,0.05);
             color: var(--text);
@@ -136,6 +131,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
+            font-size: 0.9rem;
         }
 
         .btn-icon:hover {
@@ -143,45 +139,62 @@
             transform: translateY(-2px);
         }
 
-        /* Main Layout */
+        /* Main Layout - 3 columns: Controls | Preview | Code */
         .container {
             display: grid;
-            grid-template-columns: 380px 1fr;
+            grid-template-columns: 1fr 1.2fr 380px;
             gap: 0;
-            min-height: calc(100vh - 80px);
+            min-height: calc(100vh - 65px);
         }
 
-        /* Sidebar Controls */
+        /* Sidebar Controls - Horizontal sections */
         .sidebar {
-            padding: 30px;
+            padding: 20px;
             border-right: 1px solid var(--border);
             overflow-y: auto;
-            max-height: calc(100vh - 80px);
+            max-height: calc(100vh - 65px);
             background: rgba(15, 15, 26, 0.6);
             backdrop-filter: blur(20px);
         }
 
+        .sidebar-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .sidebar-section {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+        }
+
         .section-title {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .control-group {
-            margin-bottom: 24px;
+            margin-bottom: 14px;
+        }
+
+        .control-group:last-child {
+            margin-bottom: 0;
         }
 
         .control-label {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
+            margin-bottom: 6px;
+            font-size: 0.8rem;
             color: var(--text-muted);
         }
 
@@ -189,12 +202,12 @@
             color: var(--accent);
             font-weight: 600;
             font-family: monospace;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
         }
 
         input[type="range"] {
             width: 100%;
-            height: 6px;
+            height: 5px;
             border-radius: 3px;
             background: rgba(255,255,255,0.1);
             outline: none;
@@ -205,12 +218,12 @@
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 18px;
-            height: 18px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             cursor: pointer;
-            box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
             transition: transform 0.2s;
         }
 
@@ -220,40 +233,39 @@
 
         input[type="color"] {
             width: 100%;
-            height: 44px;
-            border-radius: 10px;
+            height: 36px;
+            border-radius: 8px;
             border: 1px solid var(--border);
             background: transparent;
             cursor: pointer;
-            padding: 4px;
+            padding: 3px;
         }
 
         /* Presets */
         .presets-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-bottom: 24px;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
         }
 
         .preset-btn {
-            padding: 10px 14px;
-            border-radius: 10px;
+            padding: 6px 8px;
+            border-radius: 8px;
             border: 1px solid var(--border);
             background: rgba(255,255,255,0.03);
             color: var(--text);
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .preset-btn:hover {
             background: rgba(255,255,255,0.08);
             border-color: var(--primary);
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
         .preset-btn.active {
@@ -262,28 +274,76 @@
         }
 
         .preset-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             flex-shrink: 0;
+        }
+
+        /* Randomize */
+        .randomize-btn {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(6,182,212,0.15));
+            color: var(--text);
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .randomize-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99,102,241,0.2);
+        }
+
+        /* Element Type */
+        .element-types {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .element-btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .element-btn:hover, .element-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
 
         /* Background Options */
         .bg-options {
             display: flex;
-            gap: 10px;
-            margin-bottom: 24px;
+            flex-direction: column;
+            gap: 5px;
         }
 
         .bg-option {
-            flex: 1;
-            padding: 12px;
-            border-radius: 10px;
+            padding: 8px;
+            border-radius: 8px;
             border: 2px solid transparent;
             background: rgba(255,255,255,0.05);
             cursor: pointer;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
             transition: all 0.3s;
         }
@@ -298,62 +358,13 @@
             color: var(--text);
         }
 
-        /* Element Type */
-        .element-types {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-
-        .element-btn {
-            padding: 8px 16px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.03);
-            color: var(--text-muted);
-            cursor: pointer;
-            font-size: 0.85rem;
-            transition: all 0.3s;
-        }
-
-        .element-btn:hover, .element-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* Randomize */
-        .randomize-btn {
-            width: 100%;
-            padding: 14px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(6,182,212,0.15));
-            color: var(--text);
-            cursor: pointer;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .randomize-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(99,102,241,0.2);
-        }
-
         /* Preview Area */
         .preview-area {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 40px;
+            padding: 30px;
             position: relative;
             min-height: 100%;
         }
@@ -380,16 +391,11 @@
             background: linear-gradient(135deg, #1e1b4b, #312e81, #1e1b4b);
         }
 
-        .preview-bg.custom {
-            background-size: cover;
-            background-position: center;
-        }
-
         .preview-container {
             position: relative;
             z-index: 1;
             width: 100%;
-            max-width: 600px;
+            max-width: 500px;
         }
 
         /* Glass Element */
@@ -399,75 +405,77 @@
         }
 
         .glass-card {
-            padding: 40px;
-            max-width: 400px;
+            padding: 32px;
+            max-width: 360px;
             margin: 0 auto;
         }
 
         .glass-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .glass-card p {
             color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 20px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
         }
 
         .glass-card .card-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 20px;
-            padding-top: 20px;
+            margin-top: 16px;
+            padding-top: 16px;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .glass-card .avatar {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
+            font-size: 0.8rem;
         }
 
         .glass-button {
-            padding: 14px 36px;
-            font-size: 1rem;
+            padding: 12px 28px;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             border: none;
             color: white;
         }
 
         .glass-navbar {
-            padding: 16px 30px;
+            padding: 14px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
         }
 
         .glass-navbar .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 20px;
         }
 
         .glass-navbar .nav-links a {
             color: var(--text);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.7;
             transition: opacity 0.3s;
         }
@@ -477,41 +485,42 @@
         }
 
         .glass-modal {
-            padding: 30px;
-            max-width: 450px;
+            padding: 24px;
+            max-width: 400px;
             margin: 0 auto;
         }
 
         .glass-modal h3 {
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
         }
 
         .glass-modal .modal-actions {
             display: flex;
-            gap: 12px;
-            margin-top: 24px;
+            gap: 10px;
+            margin-top: 20px;
         }
 
         .glass-input-wrapper {
-            max-width: 400px;
+            max-width: 360px;
             margin: 0 auto;
             width: 100%;
         }
 
         .glass-input-wrapper label {
             display: block;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
             color: var(--text-muted);
         }
 
         .glass-input {
             width: 100%;
-            padding: 14px 18px;
+            padding: 12px 16px;
             border: none;
             outline: none;
             color: white;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: all 0.3s;
         }
 
@@ -519,48 +528,44 @@
             color: rgba(255,255,255,0.4);
         }
 
-        /* CSS Output Panel */
+        /* CSS Output Panel - Now in sidebar, not floating */
         .output-panel {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 420px;
-            max-width: calc(100vw - 60px);
-            background: rgba(15, 15, 26, 0.95);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
-            z-index: 50;
+            border-left: 1px solid var(--border);
+            background: rgba(15, 15, 26, 0.8);
             backdrop-filter: blur(20px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            max-height: calc(100vh - 65px);
         }
 
         .output-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .output-header h4 {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
         }
 
         .output-tabs {
             display: flex;
-            gap: 4px;
-            margin-bottom: 12px;
+            gap: 3px;
+            margin-bottom: 10px;
         }
 
         .output-tab {
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 6px;
             border: none;
             background: transparent;
             color: var(--text-muted);
             cursor: pointer;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             transition: all 0.3s;
         }
 
@@ -576,15 +581,16 @@
         .code-block {
             background: rgba(0,0,0,0.4);
             border-radius: 10px;
-            padding: 16px;
+            padding: 14px;
             font-family: 'Fira Code', 'Consolas', monospace;
-            font-size: 0.8rem;
-            line-height: 1.6;
+            font-size: 0.75rem;
+            line-height: 1.5;
             color: #a5b4fc;
             overflow-x: auto;
             white-space: pre-wrap;
             word-break: break-all;
-            max-height: 200px;
+            flex: 1;
+            min-height: 200px;
             overflow-y: auto;
         }
 
@@ -596,7 +602,7 @@
         .copy-btn {
             width: 100%;
             margin-top: 12px;
-            padding: 12px;
+            padding: 10px;
             border-radius: 10px;
             border: none;
             background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -608,11 +614,12 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            font-size: 0.85rem;
         }
 
         .copy-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(99,102,241,0.3);
+            box-shadow: 0 8px 20px rgba(99,102,241,0.3);
         }
 
         .copy-btn.copied {
@@ -622,19 +629,20 @@
         /* Toast */
         .toast {
             position: fixed;
-            top: 100px;
+            top: 80px;
             left: 50%;
             transform: translateX(-50%) translateY(-20px);
             background: rgba(16, 185, 129, 0.9);
             color: white;
-            padding: 12px 24px;
-            border-radius: 10px;
+            padding: 10px 20px;
+            border-radius: 8px;
             font-weight: 600;
             opacity: 0;
             pointer-events: none;
             transition: all 0.3s;
             z-index: 200;
             backdrop-filter: blur(10px);
+            font-size: 0.85rem;
         }
 
         .toast.show {
@@ -645,13 +653,13 @@
         /* Keyboard hint */
         .keyboard-hint {
             position: fixed;
-            bottom: 30px;
-            left: 30px;
+            bottom: 20px;
+            left: 20px;
             background: rgba(15, 15, 26, 0.8);
             border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 12px 16px;
-            font-size: 0.75rem;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 0.7rem;
             color: var(--text-muted);
             backdrop-filter: blur(10px);
             z-index: 40;
@@ -659,14 +667,27 @@
 
         .keyboard-hint kbd {
             background: rgba(255,255,255,0.1);
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 2px 5px;
+            border-radius: 3px;
             font-family: monospace;
             margin: 0 2px;
+            font-size: 0.65rem;
         }
 
         /* Responsive */
-        @media (max-width: 900px) {
+        @media (max-width: 1100px) {
+            .container {
+                grid-template-columns: 1fr 1fr;
+            }
+            .output-panel {
+                grid-column: 1 / -1;
+                border-left: none;
+                border-top: 1px solid var(--border);
+                max-height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
             .container {
                 grid-template-columns: 1fr;
             }
@@ -675,12 +696,11 @@
                 border-bottom: 1px solid var(--border);
                 max-height: none;
             }
+            .sidebar-grid {
+                grid-template-columns: 1fr;
+            }
             .output-panel {
-                position: relative;
-                bottom: auto;
-                right: auto;
-                width: calc(100% - 40px);
-                margin: 20px auto;
+                border-top: 1px solid var(--border);
             }
             .keyboard-hint {
                 display: none;
@@ -689,14 +709,14 @@
 
         /* Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         ::-webkit-scrollbar-track {
             background: transparent;
         }
         ::-webkit-scrollbar-thumb {
             background: rgba(255,255,255,0.1);
-            border-radius: 4px;
+            border-radius: 3px;
         }
         ::-webkit-scrollbar-thumb:hover {
             background: rgba(255,255,255,0.2);
@@ -730,158 +750,163 @@
         </div>
     </header>
 
-    <!-- Main -->
+    <!-- Main - 3 Column Layout -->
     <div class="container">
-        <!-- Sidebar -->
+        <!-- Left: Controls in Grid -->
         <aside class="sidebar">
-            <div class="section-title">
-                <i class="fas fa-layer-group"></i>
-                Presets
-            </div>
-            <div class="presets-grid">
-                <button class="preset-btn active" data-preset="frost">
-                    <span class="preset-dot" style="background:#e0f2fe"></span>
-                    Frost
-                </button>
-                <button class="preset-btn" data-preset="smoke">
-                    <span class="preset-dot" style="background:#94a3b8"></span>
-                    Smoke
-                </button>
-                <button class="preset-btn" data-preset="arctic">
-                    <span class="preset-dot" style="background:#a5f3fc"></span>
-                    Arctic
-                </button>
-                <button class="preset-btn" data-preset="neon">
-                    <span class="preset-dot" style="background:#c084fc"></span>
-                    Neon Glass
-                </button>
-                <button class="preset-btn" data-preset="midnight">
-                    <span class="preset-dot" style="background:#1e1b4b"></span>
-                    Midnight
-                </button>
-                <button class="preset-btn" data-preset="rose">
-                    <span class="preset-dot" style="background:#fda4af"></span>
-                    Rose
-                </button>
-                <button class="preset-btn" data-preset="gold">
-                    <span class="preset-dot" style="background:#fcd34d"></span>
-                    Gold
-                </button>
-                <button class="preset-btn" data-preset="forest">
-                    <span class="preset-dot" style="background:#86efac"></span>
-                    Forest
-                </button>
-            </div>
-
             <button class="randomize-btn" id="randomizeBtn">
                 <i class="fas fa-shuffle"></i>
                 Randomize Style
             </button>
 
-            <div class="section-title">
-                <i class="fas fa-shapes"></i>
-                Element Type
-            </div>
-            <div class="element-types">
-                <button class="element-btn active" data-element="card">Card</button>
-                <button class="element-btn" data-element="button">Button</button>
-                <button class="element-btn" data-element="navbar">Navbar</button>
-                <button class="element-btn" data-element="modal">Modal</button>
-                <button class="element-btn" data-element="input">Input</button>
-            </div>
-
-            <div class="section-title">
-                <i class="fas fa-sliders-h"></i>
-                Adjustments
-            </div>
-
-            <div class="control-group">
-                <div class="control-label">
-                    <span>Blur</span>
-                    <span id="blurVal">12px</span>
+            <div class="sidebar-grid">
+                <!-- Presets Section -->
+                <div class="sidebar-section">
+                    <div class="section-title">
+                        <i class="fas fa-layer-group"></i>
+                        Presets
+                    </div>
+                    <div class="presets-grid">
+                        <button class="preset-btn active" data-preset="frost">
+                            <span class="preset-dot" style="background:#e0f2fe"></span>
+                            Frost
+                        </button>
+                        <button class="preset-btn" data-preset="smoke">
+                            <span class="preset-dot" style="background:#94a3b8"></span>
+                            Smoke
+                        </button>
+                        <button class="preset-btn" data-preset="arctic">
+                            <span class="preset-dot" style="background:#a5f3fc"></span>
+                            Arctic
+                        </button>
+                        <button class="preset-btn" data-preset="neon">
+                            <span class="preset-dot" style="background:#c084fc"></span>
+                            Neon
+                        </button>
+                        <button class="preset-btn" data-preset="midnight">
+                            <span class="preset-dot" style="background:#1e1b4b"></span>
+                            Midnight
+                        </button>
+                        <button class="preset-btn" data-preset="rose">
+                            <span class="preset-dot" style="background:#fda4af"></span>
+                            Rose
+                        </button>
+                        <button class="preset-btn" data-preset="gold">
+                            <span class="preset-dot" style="background:#fcd34d"></span>
+                            Gold
+                        </button>
+                        <button class="preset-btn" data-preset="forest">
+                            <span class="preset-dot" style="background:#86efac"></span>
+                            Forest
+                        </button>
+                    </div>
                 </div>
-                <input type="range" id="blur" min="0" max="40" value="12">
-            </div>
 
-            <div class="control-group">
-                <div class="control-label">
-                    <span>Transparency</span>
-                    <span id="opacityVal">0.15</span>
+                <!-- Element Type Section -->
+                <div class="sidebar-section">
+                    <div class="section-title">
+                        <i class="fas fa-shapes"></i>
+                        Element Type
+                    </div>
+                    <div class="element-types">
+                        <button class="element-btn active" data-element="card">Card</button>
+                        <button class="element-btn" data-element="button">Button</button>
+                        <button class="element-btn" data-element="navbar">Navbar</button>
+                        <button class="element-btn" data-element="modal">Modal</button>
+                        <button class="element-btn" data-element="input">Input</button>
+                    </div>
                 </div>
-                <input type="range" id="opacity" min="0" max="100" value="15">
-            </div>
 
-            <div class="control-group">
-                <div class="control-label">
-                    <span>Border Radius</span>
-                    <span id="radiusVal">16px</span>
+                <!-- Adjustments Section -->
+                <div class="sidebar-section">
+                    <div class="section-title">
+                        <i class="fas fa-sliders-h"></i>
+                        Adjustments
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <span>Blur</span>
+                            <span id="blurVal">12px</span>
+                        </div>
+                        <input type="range" id="blur" min="0" max="40" value="12">
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <span>Transparency</span>
+                            <span id="opacityVal">0.15</span>
+                        </div>
+                        <input type="range" id="opacity" min="0" max="100" value="15">
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <span>Radius</span>
+                            <span id="radiusVal">16px</span>
+                        </div>
+                        <input type="range" id="radius" min="0" max="50" value="16">
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <span>Border</span>
+                            <span id="borderOpacityVal">0.2</span>
+                        </div>
+                        <input type="range" id="borderOpacity" min="0" max="100" value="20">
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <span>Shadow</span>
+                            <span id="shadowVal">20px</span>
+                        </div>
+                        <input type="range" id="shadow" min="0" max="100" value="20">
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <span>Tint</span>
+                        </div>
+                        <input type="color" id="tint" value="#ffffff">
+                    </div>
                 </div>
-                <input type="range" id="radius" min="0" max="50" value="16">
-            </div>
 
-            <div class="control-group">
-                <div class="control-label">
-                    <span>Border Opacity</span>
-                    <span id="borderOpacityVal">0.2</span>
+                <!-- Background Section -->
+                <div class="sidebar-section">
+                    <div class="section-title">
+                        <i class="fas fa-image"></i>
+                        Background
+                    </div>
+                    <div class="bg-options">
+                        <div class="bg-option active" data-bg="gradient">Gradient</div>
+                        <div class="bg-option" data-bg="dark">Dark</div>
+                        <div class="bg-option" data-bg="light">Light</div>
+                    </div>
                 </div>
-                <input type="range" id="borderOpacity" min="0" max="100" value="20">
-            </div>
-
-            <div class="control-group">
-                <div class="control-label">
-                    <span>Shadow Spread</span>
-                    <span id="shadowVal">20px</span>
-                </div>
-                <input type="range" id="shadow" min="0" max="100" value="20">
-            </div>
-
-            <div class="control-group">
-                <div class="control-label">
-                    <span>Glass Tint</span>
-                </div>
-                <input type="color" id="tint" value="#ffffff">
-            </div>
-
-            <div class="section-title">
-                <i class="fas fa-image"></i>
-                Background
-            </div>
-            <div class="bg-options">
-                <div class="bg-option active" data-bg="gradient">Gradient</div>
-                <div class="bg-option" data-bg="dark">Dark</div>
-                <div class="bg-option" data-bg="light">Light</div>
             </div>
         </aside>
 
-        <!-- Preview -->
+        <!-- Center: Preview -->
         <main class="preview-area">
             <div class="preview-bg gradient" id="previewBg"></div>
             <div class="preview-container" id="previewContainer">
-                <!-- Card -->
                 <div class="glass-element glass-card" id="glassCard">
                     <h3><i class="fas fa-sparkles"></i> Glass Card</h3>
                     <p>This is a live preview of your glassmorphism effect. Adjust the sliders to customize the blur, transparency, and styling.</p>
                     <div class="card-meta">
-                        <div style="display:flex;align-items:center;gap:12px">
+                        <div style="display:flex;align-items:center;gap:10px">
                             <div class="avatar">JD</div>
                             <div>
-                                <div style="font-weight:600">John Doe</div>
-                                <div style="font-size:0.8rem;color:var(--text-muted)">Designer</div>
+                                <div style="font-weight:600;font-size:0.85rem">John Doe</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted)">Designer</div>
                             </div>
                         </div>
-                        <i class="fas fa-arrow-right" style="opacity:0.5"></i>
+                        <i class="fas fa-arrow-right" style="opacity:0.5;font-size:0.8rem"></i>
                     </div>
                 </div>
 
-                <!-- Button (hidden by default) -->
                 <div class="glass-element glass-button" id="glassButton" style="display:none">
                     <i class="fas fa-rocket"></i>
                     Get Started
                 </div>
 
-                <!-- Navbar (hidden by default) -->
                 <div class="glass-element glass-navbar" id="glassNavbar" style="display:none">
-                    <div style="font-weight:700;font-size:1.1rem">Brand</div>
+                    <div style="font-weight:700;font-size:1rem">Brand</div>
                     <div class="nav-links">
                         <a href="#">Home</a>
                         <a href="#">About</a>
@@ -889,40 +914,38 @@
                     </div>
                 </div>
 
-                <!-- Modal (hidden by default) -->
                 <div class="glass-element glass-modal" id="glassModal" style="display:none">
                     <h3><i class="fas fa-bell"></i> Notification</h3>
-                    <p style="color:var(--text-muted);margin:12px 0">Your glassmorphism style has been updated successfully!</p>
+                    <p style="color:var(--text-muted);margin:10px 0;font-size:0.85rem">Your glassmorphism style has been updated successfully!</p>
                     <div class="modal-actions">
-                        <button class="glass-button" style="padding:10px 24px;font-size:0.9rem">Confirm</button>
-                        <button class="glass-button" style="padding:10px 24px;font-size:0.9rem;background:rgba(255,255,255,0.1)">Cancel</button>
+                        <button class="glass-button" style="padding:8px 20px;font-size:0.85rem">Confirm</button>
+                        <button class="glass-button" style="padding:8px 20px;font-size:0.85rem;background:rgba(255,255,255,0.1)">Cancel</button>
                     </div>
                 </div>
 
-                <!-- Input (hidden by default) -->
                 <div class="glass-input-wrapper" id="glassInputWrapper" style="display:none">
                     <label>Email Address</label>
                     <input type="text" class="glass-element glass-input" id="glassInput" placeholder="Enter your email...">
                 </div>
             </div>
         </main>
-    </div>
 
-    <!-- Output Panel -->
-    <div class="output-panel">
-        <div class="output-header">
-            <h4><i class="fas fa-code"></i> Generated Code</h4>
+        <!-- Right: Code Output (Fixed Sidebar, Not Floating) -->
+        <div class="output-panel">
+            <div class="output-header">
+                <h4><i class="fas fa-code"></i> Generated Code</h4>
+            </div>
+            <div class="output-tabs">
+                <button class="output-tab active" data-format="css">CSS</button>
+                <button class="output-tab" data-format="tailwind">Tailwind</button>
+                <button class="output-tab" data-format="scss">SCSS</button>
+            </div>
+            <div class="code-block" id="codeOutput"></div>
+            <button class="copy-btn" id="copyBtn">
+                <i class="fas fa-copy"></i>
+                Copy Code
+            </button>
         </div>
-        <div class="output-tabs">
-            <button class="output-tab active" data-format="css">CSS</button>
-            <button class="output-tab" data-format="tailwind">Tailwind</button>
-            <button class="output-tab" data-format="scss">SCSS</button>
-        </div>
-        <div class="code-block" id="codeOutput"></div>
-        <button class="copy-btn" id="copyBtn">
-            <i class="fas fa-copy"></i>
-            Copy Code
-        </button>
     </div>
 
     <!-- Toast -->
@@ -930,7 +953,7 @@
 
     <!-- Keyboard Hint -->
     <div class="keyboard-hint">
-        <kbd>↑</kbd><kbd>↓</kbd> nudge values &nbsp;|&nbsp; <kbd>R</kbd> randomize
+        <kbd>↑</kbd><kbd>↓</kbd> nudge &nbsp;|&nbsp; <kbd>R</kbd> randomize
     </div>
 
     <script>
@@ -946,7 +969,6 @@
             element: 'card'
         };
 
-        // Presets
         const presets = {
             frost: { blur: 12, opacity: 0.15, radius: 16, borderOpacity: 0.2, shadow: 20, tint: '#ffffff' },
             smoke: { blur: 20, opacity: 0.08, radius: 12, borderOpacity: 0.15, shadow: 30, tint: '#94a3b8' },
@@ -958,7 +980,6 @@
             forest: { blur: 18, opacity: 0.1, radius: 20, borderOpacity: 0.2, shadow: 28, tint: '#86efac' }
         };
 
-        // DOM Elements
         const elements = {
             blur: document.getElementById('blur'),
             opacity: document.getElementById('opacity'),
@@ -974,11 +995,9 @@
             previewBg: document.getElementById('previewBg'),
             codeOutput: document.getElementById('codeOutput'),
             copyBtn: document.getElementById('copyBtn'),
-            toast: document.getElementById('toast'),
-            previewContainer: document.getElementById('previewContainer')
+            toast: document.getElementById('toast')
         };
 
-        // Glass elements
         const glassElements = {
             card: document.getElementById('glassCard'),
             button: document.getElementById('glassButton'),
@@ -990,7 +1009,6 @@
 
         let currentFormat = 'css';
 
-        // Initialize
         function init() {
             loadFromURL();
             updateUI();
@@ -999,7 +1017,6 @@
             setupEventListeners();
         }
 
-        // Update glass styles
         function updateGlass() {
             const { blur, opacity, radius, borderOpacity, shadow, tint } = state;
             const hexToRgba = (hex, a) => {
@@ -1024,19 +1041,14 @@
             Object.values(glassElements).forEach(el => {
                 if (el && el.style.display !== 'none') {
                     el.style.cssText = el.id === 'glassInputWrapper' ? '' : style;
-                    if (el.id !== 'glassInputWrapper') {
-                        el.style.display = el.dataset.originalDisplay || '';
-                    }
                 }
             });
 
-            // Special handling for input
             if (glassElements.input && glassElements.inputWrapper.style.display !== 'none') {
                 glassElements.input.style.cssText = style;
             }
         }
 
-        // Update UI values
         function updateUI() {
             elements.blur.value = state.blur;
             elements.opacity.value = Math.round(state.opacity * 100);
@@ -1051,10 +1063,8 @@
             elements.borderOpacityVal.textContent = state.borderOpacity;
             elements.shadowVal.textContent = state.shadow + 'px';
 
-            // Update background
             elements.previewBg.className = 'preview-bg ' + state.bg;
 
-            // Update element visibility
             Object.keys(glassElements).forEach(key => {
                 const el = glassElements[key];
                 if (!el) return;
@@ -1067,7 +1077,6 @@
             });
         }
 
-        // Generate code
         function updateCode() {
             const { blur, opacity, radius, borderOpacity, shadow, tint } = state;
             const hexToRgba = (hex, a) => {
@@ -1080,40 +1089,17 @@
             let code = '';
 
             if (currentFormat === 'css') {
-                code = `<span class="sel">.glass</span> <span class="punc">{</span>
-  <span class="prop">background</span><span class="punc">:</span> <span class="val">${hexToRgba(tint, opacity)}</span><span class="punc">;</span>
-  <span class="prop">backdrop-filter</span><span class="punc">:</span> <span class="val">blur(${blur}px)</span><span class="punc">;</span>
-  <span class="prop">-webkit-backdrop-filter</span><span class="punc">:</span> <span class="val">blur(${blur}px)</span><span class="punc">;</span>
-  <span class="prop">border-radius</span><span class="punc">:</span> <span class="val">${radius}px</span><span class="punc">;</span>
-  <span class="prop">border</span><span class="punc">:</span> <span class="val">1px solid ${hexToRgba(tint, borderOpacity)}</span><span class="punc">;</span>
-  <span class="prop">box-shadow</span><span class="punc">:</span> <span class="val">0 8px ${shadow}px rgba(0, 0, 0, 0.37)</span><span class="punc">;</span>
-<span class="punc">}</span>`;
+                code = `<span class="sel">.glass</span> <span class="punc">{</span>\n  <span class="prop">background</span><span class="punc">:</span> <span class="val">${hexToRgba(tint, opacity)}</span><span class="punc">;</span>\n  <span class="prop">backdrop-filter</span><span class="punc">:</span> <span class="val">blur(${blur}px)</span><span class="punc">;</span>\n  <span class="prop">-webkit-backdrop-filter</span><span class="punc">:</span> <span class="val">blur(${blur}px)</span><span class="punc">;</span>\n  <span class="prop">border-radius</span><span class="punc">:</span> <span class="val">${radius}px</span><span class="punc">;</span>\n  <span class="prop">border</span><span class="punc">:</span> <span class="val">1px solid ${hexToRgba(tint, borderOpacity)}</span><span class="punc">;</span>\n  <span class="prop">box-shadow</span><span class="punc">:</span> <span class="val">0 8px ${shadow}px rgba(0, 0, 0, 0.37)</span><span class="punc">;</span>\n<span class="punc">}</span>`;
             } else if (currentFormat === 'tailwind') {
                 const twTint = tint === '#ffffff' ? 'white' : `[${tint}]`;
-                code = `<span class="sel">&lt;div</span> <span class="prop">class</span><span class="punc">=</span><span class="val">"bg-${twTint}/${Math.round(opacity*100)} backdrop-blur-[${blur}px] rounded-[${radius}px] border border-${twTint}/${Math.round(borderOpacity*100)} shadow-[0_8px_${shadow}px_rgba(0,0,0,0.37)]"</span><span class="sel">&gt;</span>
-  <span class="sel">&lt;!-- Your content --&gt;</span>
-<span class="sel">&lt;/div&gt;</span>`;
+                code = `<span class="sel">&lt;div</span> <span class="prop">class</span><span class="punc">=</span><span class="val">"bg-${twTint}/${Math.round(opacity*100)} backdrop-blur-[${blur}px] rounded-[${radius}px] border border-${twTint}/${Math.round(borderOpacity*100)} shadow-[0_8px_${shadow}px_rgba(0,0,0,0.37)]"</span><span class="sel">&gt;</span>\n  <span class="sel">&lt;!-- Your content --&gt;</span>\n<span class="sel">&lt;/div&gt;</span>`;
             } else if (currentFormat === 'scss') {
-                code = `<span class="sel">$glass-bg</span><span class="punc">:</span> <span class="val">${hexToRgba(tint, opacity)}</span><span class="punc">;</span>
-<span class="sel">$glass-blur</span><span class="punc">:</span> <span class="val">${blur}px</span><span class="punc">;</span>
-<span class="sel">$glass-radius</span><span class="punc">:</span> <span class="val">${radius}px</span><span class="punc">;</span>
-<span class="sel">$glass-border</span><span class="punc">:</span> <span class="val">${hexToRgba(tint, borderOpacity)}</span><span class="punc">;</span>
-<span class="sel">$glass-shadow</span><span class="punc">:</span> <span class="val">0 8px ${shadow}px rgba(0, 0, 0, 0.37)</span><span class="punc">;</span>
-
-<span class="sel">@mixin glass</span> <span class="punc">{</span>
-  <span class="prop">background</span><span class="punc">:</span> <span class="val">$glass-bg</span><span class="punc">;</span>
-  <span class="prop">backdrop-filter</span><span class="punc">:</span> <span class="val">blur($glass-blur)</span><span class="punc">;</span>
-  <span class="prop">-webkit-backdrop-filter</span><span class="punc">:</span> <span class="val">blur($glass-blur)</span><span class="punc">;</span>
-  <span class="prop">border-radius</span><span class="punc">:</span> <span class="val">$glass-radius</span><span class="punc">;</span>
-  <span class="prop">border</span><span class="punc">:</span> <span class="val">1px solid $glass-border</span><span class="punc">;</span>
-  <span class="prop">box-shadow</span><span class="punc">:</span> <span class="val">$glass-shadow</span><span class="punc">;</span>
-<span class="punc">}</span>`;
+                code = `<span class="sel">$glass-bg</span><span class="punc">:</span> <span class="val">${hexToRgba(tint, opacity)}</span><span class="punc">;</span>\n<span class="sel">$glass-blur</span><span class="punc">:</span> <span class="val">${blur}px</span><span class="punc">;</span>\n<span class="sel">$glass-radius</span><span class="punc">:</span> <span class="val">${radius}px</span><span class="punc">;</span>\n<span class="sel">$glass-border</span><span class="punc">:</span> <span class="val">${hexToRgba(tint, borderOpacity)}</span><span class="punc">;</span>\n<span class="sel">$glass-shadow</span><span class="punc">:</span> <span class="val">0 8px ${shadow}px rgba(0, 0, 0, 0.37)</span><span class="punc">;</span>\n\n<span class="sel">@mixin glass</span> <span class="punc">{</span>\n  <span class="prop">background</span><span class="punc">:</span> <span class="val">$glass-bg</span><span class="punc">;</span>\n  <span class="prop">backdrop-filter</span><span class="punc">:</span> <span class="val">blur($glass-blur)</span><span class="punc">;</span>\n  <span class="prop">-webkit-backdrop-filter</span><span class="punc">:</span> <span class="val">blur($glass-blur)</span><span class="punc">;</span>\n  <span class="prop">border-radius</span><span class="punc">:</span> <span class="val">$glass-radius</span><span class="punc">;</span>\n  <span class="prop">border</span><span class="punc">:</span> <span class="val">1px solid $glass-border</span><span class="punc">;</span>\n  <span class="prop">box-shadow</span><span class="punc">:</span> <span class="val">$glass-shadow</span><span class="punc">;</span>\n<span class="punc">}</span>`;
             }
 
             elements.codeOutput.innerHTML = code;
         }
 
-        // Update URL
         function updateURL() {
             const params = new URLSearchParams();
             params.set('blur', state.blur);
@@ -1127,7 +1113,6 @@
             window.history.replaceState({}, '', '?' + params.toString());
         }
 
-        // Load from URL
         function loadFromURL() {
             const params = new URLSearchParams(window.location.search);
             if (params.has('blur')) state.blur = parseInt(params.get('blur'));
@@ -1140,7 +1125,6 @@
             if (params.has('el')) state.element = params.get('el');
         }
 
-        // Randomize
         function randomize() {
             state.blur = Math.floor(Math.random() * 30) + 5;
             state.opacity = Math.round((Math.random() * 0.25 + 0.05) * 100) / 100;
@@ -1155,64 +1139,48 @@
             updateURL();
         }
 
-        // Show toast
         function showToast(msg) {
             elements.toast.textContent = msg;
             elements.toast.classList.add('show');
             setTimeout(() => elements.toast.classList.remove('show'), 2000);
         }
 
-        // Event Listeners
         function setupEventListeners() {
-            // Sliders
             elements.blur.addEventListener('input', (e) => {
                 state.blur = parseInt(e.target.value);
                 elements.blurVal.textContent = state.blur + 'px';
-                updateGlass();
-                updateCode();
-                updateURL();
+                updateGlass(); updateCode(); updateURL();
             });
 
             elements.opacity.addEventListener('input', (e) => {
                 state.opacity = parseInt(e.target.value) / 100;
                 elements.opacityVal.textContent = state.opacity;
-                updateGlass();
-                updateCode();
-                updateURL();
+                updateGlass(); updateCode(); updateURL();
             });
 
             elements.radius.addEventListener('input', (e) => {
                 state.radius = parseInt(e.target.value);
                 elements.radiusVal.textContent = state.radius + 'px';
-                updateGlass();
-                updateCode();
-                updateURL();
+                updateGlass(); updateCode(); updateURL();
             });
 
             elements.borderOpacity.addEventListener('input', (e) => {
                 state.borderOpacity = parseInt(e.target.value) / 100;
                 elements.borderOpacityVal.textContent = state.borderOpacity;
-                updateGlass();
-                updateCode();
-                updateURL();
+                updateGlass(); updateCode(); updateURL();
             });
 
             elements.shadow.addEventListener('input', (e) => {
                 state.shadow = parseInt(e.target.value);
                 elements.shadowVal.textContent = state.shadow + 'px';
-                updateGlass();
-                updateCode();
-                updateURL();
+                updateGlass(); updateCode(); updateURL();
             });
 
             elements.tint.addEventListener('input', (e) => {
                 state.tint = e.target.value;
-                updateGlass();
-                updateCode();
-                updateURL();
+                updateGlass(); updateCode(); updateURL();
             });
 
-            // Presets
             document.querySelectorAll('.preset-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
@@ -1220,15 +1188,11 @@
                     const preset = presets[btn.dataset.preset];
                     if (preset) {
                         Object.assign(state, preset);
-                        updateUI();
-                        updateGlass();
-                        updateCode();
-                        updateURL();
+                        updateUI(); updateGlass(); updateCode(); updateURL();
                     }
                 });
             });
 
-            // Background options
             document.querySelectorAll('.bg-option').forEach(opt => {
                 opt.addEventListener('click', () => {
                     document.querySelectorAll('.bg-option').forEach(o => o.classList.remove('active'));
@@ -1239,19 +1203,15 @@
                 });
             });
 
-            // Element types
             document.querySelectorAll('.element-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     document.querySelectorAll('.element-btn').forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                     state.element = btn.dataset.element;
-                    updateUI();
-                    updateGlass();
-                    updateURL();
+                    updateUI(); updateGlass(); updateURL();
                 });
             });
 
-            // Format tabs
             document.querySelectorAll('.output-tab').forEach(tab => {
                 tab.addEventListener('click', () => {
                     document.querySelectorAll('.output-tab').forEach(t => t.classList.remove('active'));
@@ -1261,7 +1221,6 @@
                 });
             });
 
-            // Copy button
             elements.copyBtn.addEventListener('click', () => {
                 const text = elements.codeOutput.innerText;
                 navigator.clipboard.writeText(text).then(() => {
@@ -1275,11 +1234,9 @@
                 });
             });
 
-            // Randomize buttons
             document.getElementById('randomizeBtn').addEventListener('click', randomize);
             document.getElementById('randomizeHeader').addEventListener('click', randomize);
 
-            // Theme toggle
             document.getElementById('themeToggle').addEventListener('click', () => {
                 const bgs = ['gradient', 'dark', 'light'];
                 const current = bgs.indexOf(state.bg);
@@ -1291,33 +1248,24 @@
                 updateURL();
             });
 
-            // Keyboard shortcuts
             document.addEventListener('keydown', (e) => {
                 if (e.target.tagName === 'INPUT') return;
-                
-                if (e.key === 'r' || e.key === 'R') {
-                    randomize();
-                }
+                if (e.key === 'r' || e.key === 'R') randomize();
             });
 
-            // Focused slider keyboard
             document.querySelectorAll('input[type="range"]').forEach(slider => {
                 slider.addEventListener('keydown', (e) => {
                     const step = e.shiftKey ? 5 : 1;
                     let val = parseInt(slider.value);
-                    if (e.key === 'ArrowUp' || e.key === 'ArrowRight') {
-                        val = Math.min(val + step, parseInt(slider.max));
-                    } else if (e.key === 'ArrowDown' || e.key === 'ArrowLeft') {
-                        val = Math.max(val - step, parseInt(slider.min));
-                    }
+                    if (e.key === 'ArrowUp' || e.key === 'ArrowRight') val = Math.min(val + step, parseInt(slider.max));
+                    else if (e.key === 'ArrowDown' || e.key === 'ArrowLeft') val = Math.max(val - step, parseInt(slider.min));
                     slider.value = val;
                     slider.dispatchEvent(new Event('input'));
                 });
             });
         }
 
-        // Start
         init();
     </script>
 </body>
-</html>'''
+</html>
